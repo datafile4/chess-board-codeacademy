@@ -1,38 +1,30 @@
-//constructors section
-function Cell(x,y,filled){ //one cell of table
-  this.x = x;
-  this.y =y;
-  this.filled = filled;
-}
-
-function Figure(x,y){ //parent class for all figures
+//constructors
+function Cell(x,y,figure){
   this.x = x;
   this.y = y;
+  this.figure = figure;
 }
 
-//constructors section
-//arrays
-var divCells = new Array();
-var divColumns = new Array();
-//arrays
-var container = document.createElement("DIV");
-container.setAttribute("class", "container");
+//constructors
+
+
+
+var container = document.createElement("DIV");//big container
+$(container).addClass("colorGrey");
+$(container).addClass("container");
 document.body.appendChild(container);
+
+var divCells = new Array(); //array for cells
+
+//creating cells
 for(var i=0; i<8; i++){
-  divColumns[i] = document.createElement("DIV");
-  divColumns[i].setAttribute("class", "column");
-  container.appendChild(divColumns[i]);
+  divCells[i] = new Array(); //i-row
   for(var j=0; j<8; j++){
-    divCells[j] = document.createElement("DIV");
-    $(divCells[j]).addClass("cells");
-    switch (j) {
-      case 0:
-        $(divCells[j]).addClass("color-black");
-        break;
-      case 1:
-        $(divCells[j]).addClass("color-white");
-        break;
+    divCells[i][j] = document.createElement("DIV"); //j - column
+    divCells[i][j].setAttribute("class", "cell");
+    if((i+j)%2!=0){ //paint cells black
+      $(divCells[i][j]).addClass("colorBlack");
     }
-    divColumns[i].appendChild(divCells[j]);
+    container.appendChild(divCells[i][j]);
   }
 }
