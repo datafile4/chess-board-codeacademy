@@ -24,8 +24,15 @@ for(var i=0; i<8; i++){
   container.appendChild(divColumns[i]);
   for(var j=0; j<8; j++){
     divCells[j] = document.createElement("DIV");
-    divCells[j].setAttribute("class", "cells");
-
+    $(divCells[j]).addClass("cells");
+    switch (j) {
+      case 0:
+        $(divCells[j]).addClass("color-black");
+        break;
+      case 1:
+        $(divCells[j]).addClass("color-white");
+        break;
+    }
     divColumns[i].appendChild(divCells[j]);
   }
 }
