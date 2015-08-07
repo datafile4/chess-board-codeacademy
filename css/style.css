@@ -1,11 +1,15 @@
-.colorBlack{
-  background-color: black;
+*{
+  font-size: 32px;
 }
 
-.colorGrey{
-  background-color: #FCFFC7;
+
+.colorSilver{
+  background-color: #686164;
 }
 
+.colorWhiteSilver{
+  background-color: #ccc7c9;
+}
 .container{
   width: 400px;
   height: 400px;
@@ -16,6 +20,8 @@
 .cell{
   min-width: 50px;
   min-height: 50px;
+  text-align: center;
+  line-height: 50px;
 }
 
 .column{
